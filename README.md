@@ -1,16 +1,8 @@
-# Dilling
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- D
-
-```sh
-127.0.0.1:8000
-```
-
-
 # AI-Hire-Test
 
-
+```diff
+- READ PROBLEMS ENCOUNTERED SECTION BELOW
+```
 - Prototyping NLP search with background removal
 
 ### Introduction
@@ -65,7 +57,7 @@ However, the company is in a bit of a hurry, so you're asked to produce the prot
 
 ##### NLP image search engine
 - 1. NLP image search engine result isn't very accurate. it returns random images along side the correct ones mostly.
-- 2. struggled to dockerize the flask app because the NLP runs on torch and torchvision which was problematic to get a base image in docker to satisfy this requirement. So, will suggest to be able to test this Flask App...clone the repo and install the requirement.txt file
+- 2. struggled to dockerize the flask app because the NLP runs on torch and torchvision which was problematic to get base image in docker to satisfy this requirement. So, will suggest to be able to test this Flask App...clone the repo and install the requirement.txt file locally
 
 
 ```sh
@@ -75,5 +67,4 @@ pip install image-searcher
 pip install -r requirements.txt
 ```
 
-##### background remover
 
