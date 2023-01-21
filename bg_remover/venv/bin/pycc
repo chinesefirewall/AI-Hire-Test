@@ -1,0 +1,3 @@
+#!/Users/shade/Dropbox/My Mac (Folasade’s MacBook Pro)/Documents/bg_remover/venv/bin/python3
+from numba.pycc import main
+main()
