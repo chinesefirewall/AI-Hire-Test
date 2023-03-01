@@ -1,39 +1,36 @@
-# AI-Hire-Test
 
+## Prototyping NLP image search engine with background removal
 ```diff
 - READ PROBLEMS ENCOUNTERED SECTION BELOW
 ```
-- Prototyping NLP search with background removal
-
 ### Introduction
 
-The company wants to launch NLP search with a new customer.
+I have a crude idea to design a NLP image search software for a company.
 However, the product photo backgrounds vary greatly.
-From past experience, you know that product photo background affects search results.
+From past experience, I know that product photo background affects search results.
 The company wants to build NLP search for fashion products, not for different photo backdrops.
-You are tasked with building a prototype of an NLP search that is smart enough to ignore the product photo background, the model's hairstyle etc.
-However, the company is in a bit of a hurry, so you're asked to produce the prototype quickly.
-[You've been given a sample of the product photos to aid you in prototyping.](https://drive.google.com/file/d/1Vvr-fO1duXhrHCp3HUG04oSwcX75PqU1/view?usp=share_link)
+I am tasked with building a prototype of an NLP search that is smart enough to ignore the product photo background, the model's hairstyle etc.
+
+[sample of the product photos to aid in prototyping.](https://drive.google.com/file/d/1Vvr-fO1duXhrHCp3HUG04oSwcX75PqU1/view?usp=share_link)
 
 ## The task
 
 1. Implement background removal for product photos
-2. Build an NLP search engine with the product photos provided to you
+2. Build an NLP search engine with the product photos provided
 3. Make both 1. and 2. accessible over HTTP via JSON
-4. Create Dockerfiles we can use to deploy the HTTP services for both 1. and 2.
+4. Create Dockerfiles that can be used to deploy the HTTP services for both 1. and 2.
 
 ## Requirements
 
 1. Background removal
-    - Replace the background pixels with RGB value \#000000, keep the foreground as is.
-    - Consider as background anything that is NOT the product being displayed in the photo, like trees, other people, buildings, the model's face or hair etc.
-    - The background-removed image should have the same dimensions as the original image
-    - Use the background-removed images when searching for products for similar images in 2.
+    - I replaced the background pixels with RGB value \#000000, kept the foreground as is.
+    - I consider as background anything that is NOT the product being displayed in the photo, like trees, other people, buildings, the model's face or hair etc.
+    - The background-removed image has the same dimensions as the original image
+    - I used the background-removed images when searching for products for similar images in 2.
 2. NLP search engine
-    - By NLP search, we mean: given a text query, find the products whose product images are most similar to the text query.
-    - In the image folder provided to you, 1 folder = 1 product, where each product can have more than one product photo
+    - By NLP search, I mean: given a text query, find the products whose product images are most similar to the text query.
     - Use the name of the image folder as the product name
-    - When returning results from the NLP search engine, make sure each product will be show
+    - When returning results from the NLP search engine, I made sure each product will be show.
 
 3. HTTP services for 1. and 2.
 
@@ -50,15 +47,29 @@ However, the company is in a bit of a hurry, so you're asked to produce the prot
 - A command that could be used to test whether the service works: `curl -XPOST -H'content-type: application/json' -d'{"text": "pastel coloured tunic", "n": 5}' <http://localhost:6000/ > output.jpg`
 
 1.  Docker
-    - Make both of the services run internally on port 5000
-    - Each service should run in a separate Docker container
+    - Both of the services will run internally on port 5000
+    - Each service will run in a separate Docker container
 
-## Problems ecountered
 
-##### NLP image search engine
-- 1. NLP image search engine result isn't very accurate. it returns random images along side the correct ones mostly.
-- 2. struggled to dockerize the flask app because the NLP runs on torch and torchvision which was problematic to get base image in docker to satisfy this requirement. So, will suggest to be able to test this Flask App...clone the repo and install the requirement.txt file locally
 
+### Built With
+- Python
+- C++
+- Flask api
+- Docker
+- Cython
+- C
+- Cuda
+- XSLT
+- gunicorn
+- numpy
+- tqdm
+- torch
+- torchvision
+
+
+
+### Prerequisites
 
 ```sh
 pip install image-searcher
@@ -66,5 +77,12 @@ pip install image-searcher
 ```sh
 pip install -r requirements.txt
 ```
+
+
+
+
+## Problems ecountered
+##### NLP image search engine
+- 1. struggled to dockerize the flask app because the NLP runs on torch and torchvision which was problematic to get base image in docker to satisfy this requirement. So, will suggest to be able to test this Flask App...clone the repo and install the requirement.txt file locally
 
 
